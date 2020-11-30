@@ -1,0 +1,46 @@
+body  
+{  
+    font-size: 1.7rem;
+  text-align: center;
+    margin: 0;  
+    padding: 0;  
+    background-color:#edede8;  
+    font-family: 'Lato', sans-serif;
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background:#bdbcb1;  
+        border-radius: 15px ;  
+          
+}  
+h2{  
+    text-align: center;  
+    color: #262829;  
+    padding: 20px;  
+}  
+label{  
+  display: block;
+    color: #30312e;  
+    margin-bottom: 10px;
+}  
+#username{  
+    width: 300px;  
+    height: 40px;  
+    border: none;  
+    border-radius: 5px;  
+    padding-left: 8px;  
+}  
+
+#log{  
+    width: 300px;  
+    height: 40px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(15, 15, 15); 
+    font-size: 1.2rem; 
+}

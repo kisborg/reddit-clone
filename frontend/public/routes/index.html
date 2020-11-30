@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='../styles/main.css'>
+  <title>Reddit app</title>
+</head>
+<body>
+  <header>
+    <h1>WELCOME TO MY AWESOME REDDIT CLONE</h1>
+  </header>
+  <div id='main-container'>
+    <div id='post-list'></div>
+    <div id='sidebar'>
+      <form action='/addPost'>
+        <button type='submit' id='new-post'>SUBMIT A NEW POST</button>
+      </form>
+      <div id='about'>
+        <h2>ABOUT</h2>
+        <p>Share and discuss </p>
+        <ul>
+          <li>Your favourite games</li>
+          <li>The worst tv shows on Netflix</li>
+          <li>Flat earth facts</li>
+          <li>Aliens</li>
+        </ul>
+      </div>
+      <form action='/'>
+        <button type='submit' id='log-out'>LOG OUT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/handlebars-v4.7.6.js"></script>
+  <script id='posts-template' type='text/x-handlebars-template'>
+    {{#each posts}}
+    <div class='post-container' id='{{id}}'>
+      <div class='votes'>
+        {{#if (ifUpvote this)}}
+        <img class='upvote' data-id='{{id}}' src='../images/upvoted.png'>
+        {{else}}
+        <img class='upvote' data-id='{{id}}' src='../images/upvote.png'>
+        {{/if}}
+        <p class='score'>{{score}}</p>
+        {{#if (ifDownvote this)}}
+        <img class='downvote' data-id='{{id}}' src='../images/downvoted.png'>
+        {{else}}
+        <img class='downvote' data-id='{{id}}' src='../images/downvote.png'>
+        {{/if}}
+      </div>
+      <div class='post-content'>
+        <h2 class='title'>{{title}}</h2>
+        <p class='url'>({{url}})</p>
+        <p>{{countDateCreated timestamp}} by {{owner}}</p> 
+        {{#if (deleteRights this)}}
+        <a href='' data-id='{{id}}' class='delete'>Delete post</a>
+        {{/if}}
+        {{#if (modifyRights this)}}
+        <a href='/update/?id={{id}}' data-id='{{id}}' class='modify'>Modify</a>
+        {{/if}}
+      </div>
+    </div>
+        {{/each}}
+  </script>
+  <script src='../js/main.js'></script>
+</body>
+</html>
